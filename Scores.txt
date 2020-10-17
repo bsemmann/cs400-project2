@@ -1,0 +1,10 @@
+200:John:Doe:2:74:83:78
+204:Mattie:Penia:2:8:15:11
+120:Elinor:Dodd:1:89:92:90
+201:Killian:Mccoy:2:39:34:30
+300:Serenity:Clifford:3:81:80:87
+109:Juliet:Braun:1:73:63:46
+114:Greg:Daly:1:54:57:70
+126:Bibi:Anderson:1:49:60:54
+314:Lilian:Roth:3:89:95:85
+203:Theo:Hines:2:99:78:89
