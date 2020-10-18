@@ -87,22 +87,24 @@ public class RedBlackTree<T extends Comparable<T>> {
 	 * @throws IllegalArgumentException when the tree already contains data
 	 */
 
-	public void insert(T data, String name, int year, int exam1, 
-	        int exam2, int exam3) throws NullPointerException,
-	                                      IllegalArgumentException {
-	        // null references cannot be stored within this tree
-	      if(data == null) throw new NullPointerException(
-	          "This RedBlackTree cannot store null references.");
-	      Node<T> newNode = new Node<>(data, name, year, exam1, exam2, exam3);
-	      newNode.name = name;
-	      newNode.year = year;
-	      newNode.exam1 = exam1;
-	      newNode.exam2 = exam2;
-	      newNode.exam3 = exam3;
-	      if(root == null) { root = newNode; } // add first node to an empty tree
-	      else insertHelper(newNode,root); // recursively insert into subtree
-	      this.root.isBlack = true;
-	  }
+	public void insert(T data, String name, int year, int exam1, int exam2, int exam3)
+			throws NullPointerException, IllegalArgumentException {
+		// null references cannot be stored within this tree
+		if (data == null)
+			throw new NullPointerException("This RedBlackTree cannot store null references.");
+		Node<T> newNode = new Node<>(data, name, year, exam1, exam2, exam3);
+		newNode.name = name;
+		newNode.year = year;
+		newNode.exam1 = exam1;
+		newNode.exam2 = exam2;
+		newNode.exam3 = exam3;
+		if (root == null) {
+			root = newNode;
+		} // add first node to an empty tree
+		else
+			insertHelper(newNode, root); // recursively insert into subtree
+		this.root.isBlack = true;
+	}
 
 	/**
 	 * Recursive helper method to find the subtree with a null reference in the
@@ -256,5 +258,102 @@ public class RedBlackTree<T extends Comparable<T>> {
 		} else {
 			throw new IllegalArgumentException("These two nodes are not initially related!");
 		}
+	}
+
+	public String getName(T data) {
+		if (data == null)
+			throw new IllegalArgumentException("Argument cannot be null!!");
+		return getName(root, data);
+	}
+
+	public int getYear(T data) {
+		if (data == null)
+			throw new IllegalArgumentException("Argument cannot be null");
+		return getYear(root, data);
+	}
+
+	public int getExam1(T data) {
+		if (data == null)
+			throw new IllegalArgumentException("Argument cannot be null");
+		return getExam1(root, data);
+	}
+
+	public int getExam2(T data) {
+		if (data == null)
+			throw new IllegalArgumentException("Argument cannot be null");
+		return getExam2(root, data);
+	}
+
+	public int getExam3(T data) {
+		if (data == null)
+			throw new IllegalArgumentException("Argument cannot be null");
+		return getExam3(root, data);
+	}
+
+	private String getName(Node node, T data) {
+		if (data == null)
+			throw new IllegalArgumentException("Argument cannot be null");
+		while (node != null) {
+			int c = data.compareTo((T) node.data);
+			if (c < 0)
+				node = node.leftChild;
+			else if (c > 0)
+				node = node.rightChild;
+			else
+				return node.name;
+		}
+		return "";
+	}
+
+	private int getYear(Node node, T data) {
+		while (node != null) {
+			int c = data.compareTo((T) node.data);
+			if (c < 0)
+				node = node.leftChild;
+			else if (c > 0)
+				node = node.rightChild;
+			else
+				return node.year;
+		}
+		return 0;
+	}
+
+	private int getExam1(Node node, T data) {
+		while (node != null) {
+			int c = data.compareTo((T) node.data);
+			if (c < 0)
+				node = node.leftChild;
+			else if (c > 0)
+				node = node.rightChild;
+			else
+				return node.exam1;
+		}
+		return 0;
+	}
+
+	private int getExam2(Node node, T data) {
+		while (node != null) {
+			int c = data.compareTo((T) node.data);
+			if (c < 0)
+				node = node.leftChild;
+			else if (c > 0)
+				node = node.rightChild;
+			else
+				return node.exam2;
+		}
+		return 0;
+	}
+
+	private int getExam3(Node node, T data) {
+		while (node != null) {
+			int c = data.compareTo((T) node.data);
+			if (c < 0)
+				node = node.leftChild;
+			else if (c > 0)
+				node = node.rightChild;
+			else
+				return node.exam3;
+		}
+		return 0;
 	}
 }
