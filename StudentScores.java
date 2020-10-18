@@ -6,9 +6,6 @@ import java.util.LinkedList;
 
 public class StudentScores {
 	public RedBlackTree<Integer> studentScores;
-	public RedBlackTree.Node node;
-	public String s;
-	public LinkedList<RedBlackTree.Node> list = new LinkedList<>();
 
 	/**
 	 * README: This works with my own RedBlackTree implementation. The insert method
@@ -27,9 +24,6 @@ public class StudentScores {
 				String line = sc.nextLine();
 				String[] data = line.split(":");
 				String name = data[1] + " " + data[2];
-				node = new RedBlackTree.Node(Integer.parseInt(data[0]), name, Integer.parseInt(data[3]),
-						Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]));
-				list.add(node);
 				studentScores.insert(Integer.parseInt(data[0]), name, Integer.parseInt(data[3]),
 						Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]));
 			}
@@ -38,42 +32,23 @@ public class StudentScores {
 		}
 	}
 
-	public String preOrder(RedBlackTree tree, RedBlackTree.Node node, String id) {
-		if (node == null)
-			return "";
-		s += node.data + " ";
-		preOrder(tree, node.leftChild, id);
-		preOrder(tree, node.rightChild, id);
-		return s;
+	public String getName(String id)  {
+		return studentScores.getName(Integer.parseInt(id));
 	}
-
-	public int getYear(String id) throws NoSuchElementException {
-		if (preOrder(studentScores, node, id).contains(id))
-			return node.year;
-		throw new NoSuchElementException("Student could not be found in list!");
+	
+	public int getYear(String id) {
+		return studentScores.getYear(Integer.parseInt(id));
 	}
-
-	public String getName(String id) throws NoSuchElementException {
-		if (preOrder(studentScores, node, id).contains(id))
-			return node.name;
-		throw new NoSuchElementException("Student could not be found in list!");
+	
+	public int getExam1(String id) {
+		return studentScores.getExam1(Integer.parseInt(id));
 	}
-
-	public int getExam1(String id) throws NoSuchElementException {
-		if (preOrder(studentScores, node, id).contains(id))
-			return node.exam1;
-		throw new NoSuchElementException("Student could not be found in list!");
+	
+	public int getExam2(String id) {
+		return studentScores.getExam2(Integer.parseInt(id));
 	}
-
-	public int getExam2(String id) throws NoSuchElementException {
-		if (preOrder(studentScores, node, id).contains(id))
-			return node.exam2;
-		throw new NoSuchElementException("Student could not be found in list!");
-	}
-
-	public int getExam3(String id) throws NoSuchElementException {
-		if (preOrder(studentScores, node, id).contains(id))
-			return node.exam3;
-		throw new NoSuchElementException("Student could not be found in list!");
+	
+	public int getExam3(String id) {
+		return studentScores.getExam3(Integer.parseInt(id));
 	}
 }
