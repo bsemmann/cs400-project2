@@ -302,7 +302,7 @@ public class RedBlackTree<T extends Comparable<T>> {
 			else
 				return node.name;
 		}
-		return "";
+		return "Invalid ID number";
 	}
 
 	private int getYear(Node node, T data) {
@@ -315,7 +315,7 @@ public class RedBlackTree<T extends Comparable<T>> {
 			else
 				return node.year;
 		}
-		return 0;
+		return -1;
 	}
 
 	private int getExam1(Node node, T data) {
@@ -328,7 +328,7 @@ public class RedBlackTree<T extends Comparable<T>> {
 			else
 				return node.exam1;
 		}
-		return 0;
+		return -1;
 	}
 
 	private int getExam2(Node node, T data) {
@@ -341,7 +341,7 @@ public class RedBlackTree<T extends Comparable<T>> {
 			else
 				return node.exam2;
 		}
-		return 0;
+		return -1;
 	}
 
 	private int getExam3(Node node, T data) {
@@ -354,6 +354,6 @@ public class RedBlackTree<T extends Comparable<T>> {
 			else
 				return node.exam3;
 		}
-		return 0;
+		return -1;
 	}
 }
