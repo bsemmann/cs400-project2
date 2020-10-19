@@ -1,12 +1,12 @@
 import java.io.File;
-import java.util.NoSuchElementException;
+import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.LinkedList;
 
 public class StudentScores {
 	public RedBlackTree<Integer> studentScores;
-
+	public ArrayList<String> list;
+	
 	/**
 	 * README: This works with my own RedBlackTree implementation. The insert method
 	 * I call below uses a modified version of the insert method all our
@@ -18,12 +18,14 @@ public class StudentScores {
 	public StudentScores() {
 		try {
 			studentScores = new RedBlackTree<Integer>();
+			list = new ArrayList<>();
 			File file = new File("Scores.txt");
 			Scanner sc = new Scanner(file);
 			while (sc.hasNextLine()) {
 				String line = sc.nextLine();
 				String[] data = line.split(":");
 				String name = data[1] + " " + data[2];
+				list.add(data[0]);
 				studentScores.insert(Integer.parseInt(data[0]), name, Integer.parseInt(data[3]),
 						Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]));
 			}
@@ -50,5 +52,9 @@ public class StudentScores {
 	
 	public int getExam3(String id) {
 		return studentScores.getExam3(Integer.parseInt(id));
+	}
+	
+	public ArrayList<String> getList() {
+		return this.list;
 	}
 }
