@@ -1,3 +1,11 @@
+// --== CS400 File Header Information ==--
+// Name: <Bhuvanesh Reddy Bathala>
+// Email: < bbreddy@wisc.edu email address>
+// Team: <ff>
+// Role: <Test Engineer>
+// TA: <Abhay Kumar>
+// Lecturer: <Gary Dahl>
+// Notes to Grader: <optional extra notes>
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
